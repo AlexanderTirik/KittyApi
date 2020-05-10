@@ -18,7 +18,12 @@ module.exports = function (app) {
   const randomImages = require("../controllers/randomImages").randomImages
 
   app.get("/randomimages/:breed/:number", cors(), randomImages)
+
   const randomImage = require("../controllers/randomImage").randomImage
 
   app.get("/randomimage/:breed", cors(), randomImage)
+
+  const getCount = require("../controllers/getCount").getCount
+
+  app.get("/getcount/:table/:id", cors(), getCount)
 }
