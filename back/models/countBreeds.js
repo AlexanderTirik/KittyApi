@@ -1,7 +1,7 @@
 const Model = require("sequelize").Model
 
-class CountBreeds extends Model {}
-CountBreeds.init(
+class CountBreed extends Model {}
+CountBreed.init(
   {
     countBreed: {
       type: Sequelize.INTEGER,
@@ -21,4 +21,7 @@ CountBreeds.init(
   }
 )
 
-export default CountBreeds
+import Breed from "./breed"
+CountBreed.belongsTo(Breed, { foreignKey: "countBreed" })
+
+export default CountBreed

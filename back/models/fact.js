@@ -1,16 +1,15 @@
 export default (orm, DataTypes) => {
-  const Breed = orm.define(
-    "breed",
+  const Fact = orm.define(
+    "fact",
     {
-      breed: {
+      fact: {
         allowNull: false,
         type: DataTypes.STRING,
       },
       createdAt: DataTypes.DATE,
       updatedAt: DataTypes.DATE,
     },
-    {sequelize:orm, modelName:"breed"}
+    {sequelize:orm, modelName:"fact"}
   )
-  return Breed
+  return Fact
 }
-

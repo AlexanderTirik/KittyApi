@@ -1,7 +1,10 @@
-import express from "express";
-const server = express();
+import express from "express"
+const server = express()
 
 server.use(express.json())
 
-export default server;
+import setRoutes from "./routes"
 
+setRoutes(server)
+
+export default server
