@@ -1,16 +1,12 @@
-import Controller from  './Controller';
-import BreedService from  "./../services/breedService";
-import {BreedModel} from  "./../models/index";
-const breedService = new BreedService(
-  BreedModel
-);
+import Controller from "./Controller"
+import BreedService from "./../services/breedService"
+import { BreedModel } from "./../models/index"
+const breedService = new BreedService(BreedModel)
 
 class BreedController extends Controller {
-
   constructor(service) {
-    super(service);
+    super(service)
   }
-
 }
 
-export default new BreedController(breedService);
+export default new BreedController(breedService)

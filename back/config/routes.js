@@ -1,5 +1,6 @@
 import BreedController from "../controllers/breedController"
 import FactController from "../controllers/factController"
+import EmojiController from "../controllers/emojiController"
 
 export default (server) => {
   server.get(`/api/breeds`, BreedController.getAll)
@@ -13,4 +14,10 @@ export default (server) => {
   server.post(`/api/facts`, FactController.insert)
   server.put(`/api/facts/:id`, FactController.update)
   server.delete(`/api/facts/:id`, FactController.delete)
+
+  server.get(`/api/emojis`, EmojiController.getAll)
+  server.get(`/api/emojis/:id`, EmojiController.getOne)
+  server.post(`/api/emojis`, EmojiController.insert)
+  server.put(`/api/emojis/:id`, EmojiController.update)
+  server.delete(`/api/emojis/:id`, EmojiController.delete)
 }
