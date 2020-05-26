@@ -3,6 +3,7 @@ class Service {
     this.model = model
     this.getAll = this.getAll.bind(this)
     this.getOne = this.getOne.bind(this)
+    this.getRandom = this.getRandom.bind(this)
     this.insert = this.insert.bind(this)
     this.update = this.update.bind(this)
     this.delete = this.delete.bind(this)
@@ -10,7 +11,7 @@ class Service {
 
   async getAll(where) {
     try {
-      const items = await this.model.findAll(where)
+      const items = await this.model.findAll({ where })
       return {
         error: false,
         data: items,
@@ -28,6 +29,32 @@ class Service {
   async getOne(where) {
     try {
       const item = await this.model.findOne({ where })
+      if (!item)
+        return {
+          error: true,
+          statusCode: 404,
+          message: "item not found",
+        }
+      return {
+        error: false,
+        statusCode: 200,
+        data: item,
+      }
+    } catch (error) {
+      return {
+        error: true,
+        statusCode: 500,
+        message: error.message,
+      }
+    }
+  }
+
+  async getRandom(where) {
+    try {
+      const limit = +where.limit
+      const rand = this.model.sequelize.literal("rand()")
+      const item = await this.model.findAll({ order: rand, limit})
+      
       if (!item)
         return {
           error: true,

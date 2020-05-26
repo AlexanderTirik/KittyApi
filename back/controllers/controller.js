@@ -3,6 +3,7 @@ class Controller {
     this.service = service
     this.getAll = this.getAll.bind(this)
     this.getOne = this.getOne.bind(this)
+    this.getRandom = this.getRandom.bind(this)
     this.insert = this.insert.bind(this)
     this.update = this.update.bind(this)
     this.delete = this.delete.bind(this)
@@ -15,7 +16,15 @@ class Controller {
   async getOne(req, res) {
     const { id } = req.params
 
-    let response = await this.service.getOne({id})
+    let response = await this.service.getOne({ id })
+
+    return res.status(response.statusCode).send(response)
+  }
+
+  async getRandom(req, res) {
+    const { limit } = req.params
+
+    let response = await this.service.getRandom({limit})
 
     return res.status(response.statusCode).send(response)
   }
@@ -29,7 +38,7 @@ class Controller {
   async update(req, res) {
     const { id } = req.params
 
-    let response = await this.service.update({id}, req.body)
+    let response = await this.service.update({ id }, req.body)
 
     return res.status(response.statusCode).send(response)
   }
@@ -37,7 +46,7 @@ class Controller {
   async delete(req, res) {
     const { id } = req.params
 
-    let response = await this.service.delete({id})
+    let response = await this.service.delete({ id })
 
     return res.status(response.statusCode).send(response)
   }
