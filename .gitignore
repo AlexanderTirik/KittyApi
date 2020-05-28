@@ -1,3 +1,4 @@
 /back/node_modules
 /back/.env
 /back/package-lock.json
+/back/public
