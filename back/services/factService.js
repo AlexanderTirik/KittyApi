@@ -1,9 +1,9 @@
-import Service from './service';
+import Service from "./service"
 
 class FactService extends Service {
   constructor(model) {
-    super(model);
+    super(model)
   }
-};
+}
 
-export default FactService;
+export default FactService

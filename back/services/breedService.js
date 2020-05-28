@@ -1,9 +1,9 @@
-import Service from './service';
+import Service from "./service"
 
 class BreedService extends Service {
   constructor(model) {
-    super(model);
+    super(model)
   }
-};
+}
 
-export default BreedService;
+export default BreedService

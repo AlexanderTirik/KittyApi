@@ -24,7 +24,7 @@ class Controller {
   async getRandom(req, res) {
     const { limit } = req.params
 
-    let response = await this.service.getRandom({limit})
+    let response = await this.service.getRandom({ limit })
 
     return res.status(response.statusCode).send(response)
   }
