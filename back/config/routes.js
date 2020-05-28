@@ -1,6 +1,7 @@
 import BreedController from "../controllers/breedController"
 import FactController from "../controllers/factController"
 import EmojiController from "../controllers/emojiController"
+import ImageController from "../controllers/imageController"
 
 export default (server) => {
   server.get(`/api/breeds`, BreedController.getAll)
@@ -23,4 +24,6 @@ export default (server) => {
   server.post(`/api/emojis`, EmojiController.insert)
   server.put(`/api/emojis/:id`, EmojiController.update)
   server.delete(`/api/emojis/:id`, EmojiController.delete)
+
+  server.get(`/api/images/:breed`, ImageController.getRandomImage)
 }
