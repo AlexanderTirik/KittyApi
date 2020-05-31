@@ -4,6 +4,14 @@ const path = require("path")
 class Image {
   constructor() {
     this.findRandom = this.findRandom.bind(this)
+    this.getOne = this.getOne.bind(this)
+  }
+
+  async getOne(where) {
+    const { breed, image } = where
+    const folder = await this.selectFolder(breed)
+    const file = await this.selectFile(folder, image)
+    return file
   }
 
   async findRandom(where) {
@@ -39,6 +47,17 @@ class Image {
       return result
     } else {
       return folder
+    }
+  }
+
+  selectFile(folder, file) {
+    const allFiles = fs.readdirSync(folder)
+    if (allFiles.includes(file)) {
+      return path.join(folder, file)
+    } else {
+      throw {
+        message: "file not found",
+      }
     }
   }
 }
