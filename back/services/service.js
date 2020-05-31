@@ -112,7 +112,7 @@ class Service {
 
   async delete(where) {
     try {
-      let item = await this.model.delete({ where })
+      let item = await this.model.destroy({ where })
       if (!item)
         return {
           error: true,
