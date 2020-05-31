@@ -6,6 +6,20 @@ class ImageController {
   constructor(service) {
     this.service = service
     this.getRandomImage = this.getRandomImage.bind(this)
+    this.getOneImage = this.getOneImage.bind(this)
+  }
+
+  async getOneImage(req, res){
+    const {breed,image} = req.params
+    let response = await this.service.getOne({ breed, image })
+
+    if (response.error) {
+      return res.status(response.statusCode).send(response)
+    } else {
+      console.log(response);
+      
+      return res.status(200).download(response, "cat")
+    }
   }
 
   async getRandomImage(req, res) {
@@ -13,8 +27,15 @@ class ImageController {
 
     let response = await this.service.getRandom({ breed })
 
-    return res.status(response.statusCode).send(response)
+    if (response.error) {
+      return res.status(response.statusCode).send(response)
+    } else {
+      console.log(response);
+      
+      return res.status(200).download(response, "cat")
+    }
   }
+
 }
 
 export default new ImageController(imageService)
