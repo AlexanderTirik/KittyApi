@@ -1,4 +1,26 @@
 .mainInfo{
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hidden{
+    visibility: hidden;
+}
+
+.requests{
+    background: white;
+    padding: 10px;
+    border-radius: 20px;
+    transition: 0.4s;
+}
+
+button{
+    margin: 10px;
+    color: white;
+    background: none;
+    font-size: medium;
+    border: 2px solid white;
+    border-radius: 10px;
 }
