@@ -4,6 +4,5 @@ export default async function getRandomData(type, number) {
   const response = await res.json()
   throwIfResponseFailed(response)
   const data = response.data
-  const info = data.map((item) => item[type])
-  return info
+  return data
 }
