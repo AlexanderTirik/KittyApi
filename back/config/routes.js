@@ -25,5 +25,6 @@ export default (server) => {
   server.put(`/api/emojis/:id`, EmojiController.update)
   server.delete(`/api/emojis/:id`, EmojiController.delete)
 
-  server.get(`/api/images/:breed`, ImageController.getRandomImage)
+  server.get(`/api/images/random/:breed`, ImageController.getRandomImage)
+  server.get(`/api/images/:breed/:image`, ImageController.getOneImage)
 }
