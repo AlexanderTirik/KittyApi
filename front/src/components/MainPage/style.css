@@ -1,0 +1,50 @@
+.baseDisplay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: Helvetica, Arial;
+}
+
+.skewed {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 80%;
+  background: #d72323;
+  z-index: -1;
+  transform: skewY(8deg);
+  transform-origin: top right;
+}
+
+.buttonGroup {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.responseButton {
+  color: #f5eded;
+  margin: 10px;
+  background: none;
+  border: 2px solid #f5eded;
+  padding: 10px;
+  border-radius: 15px;
+  transition: 0.1s;
+  font-size: xx-large;
+}
+
+.responseButton:hover {
+  background: #f5eded;
+  border: 2px solid black;
+  transition: 0.2s;
+  color: #d72323;
+}
+
+.infoBlock {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 60% 40%;
+}
