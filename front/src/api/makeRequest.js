@@ -31,7 +31,5 @@ export async function throwIfResponseFailed(res) {
 
 export default async function makeRequest(type, endpoint, body) {
   const res = await fetch(getFetchUrl(endpoint), getFetchArgs(type, body))
-  const response = await res.json()
-  await throwIfResponseFailed(response)
-  return response
+  return res
 }
